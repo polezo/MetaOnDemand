@@ -13,17 +13,18 @@
    
     <!-- interface top -->
 
-    <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
-        <form id="polyQuery"><input type="text">   <input type="submit"></form>
+    <div class="centered-top">
+        <form  style="display:inline-block;" id="polyQuery"><input type="text">   <input type="submit"></form>
     </div>
     
     <!-- interface bottom -->
 
-    <div class="hidden" id="bottom-ui" style='position: fixed; bottom: 10px; width:100%; text-align: center; z-index: 1;'>
-        <div style="color:white" id="model-change-controller"> <button id="back-button"><=</button>
+    <div class="hidden centered-bottom" id="bottom-ui">
+        <div style="color:white;" id="model-change-controller"> <button id="back-button"><=</button>
            <span class="ui-text" id="model-name"> Model Name </span><button id="forward-button">=></button> </div>
         <div><button id="smaller-button">-</button>
-            <span class="ui-text" style="color:white" id="size-toggle"> Change Size </span><button id="bigger-button">+</button></div>
+            <span class="ui-text" style="color:white" id="size-toggle"> Change Size </span><button id="bigger-button">+</button><br><span class="ui-text" id="model-by" style="color:white">Model By:</span></div>
+            
     </div>
 
     <!-- AR/A-Frame stuff -->
