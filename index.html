@@ -14,22 +14,28 @@
     <!-- interface top -->
 
     <div class="centered-top">
-        <form  style="display:inline-block;" id="polyQuery"><input type="text">   <input type="submit"></form>
+         <form style="display:inline-block;" id="polyQuery"><input type="text" placeholder="Search for an Object!"> <br> <input type="submit" value="search"></form>
     </div>
     
     <!-- interface bottom -->
 
     <div class="hidden centered-bottom" id="bottom-ui">
-        <div style="color:white;" id="model-change-controller"> <button id="back-button"><=</button>
-           <span class="ui-text" id="model-name"> Model Name </span><button id="forward-button">=></button> </div>
-        <div><button id="smaller-button">-</button>
-            <span class="ui-text" style="color:white" id="size-toggle"> Change Size </span><button id="bigger-button">+</button><br><span class="ui-text" id="model-by" style="color:white">Model By:</span></div>
-            
+        <div style="color:white;" id="model-change-controller"> <button id="back-button">⇽</button>
+           <span class="ui-text" id="model-name"> Model Name </span><button id="forward-button">⇾</button> </div><br>
+        <div> 
+                <button class="bottom-left" id="spin-toggle">Toggle Spin</button>
+            <span class="ui-text" id="model-by" style="color:white">Model By:</span><button class="bottom-right" id="layout-toggle">Toggle Layout</button><br><br>
+            <button id="smaller-button">-</button>
+            <span class="ui-text" style="color:white" id="size-toggle"> Change Size </span><button id="bigger-button">+</button>
+        </div>  
     </div>
 
     <!-- AR/A-Frame stuff -->
 
     <a-scene id="stage" scale="2 2.25 2" rotation="90 0 0" position="0 2 0" embedded arjs='trackingMethod: best;debugUIEnabled: false'>
+
+    <!-- <a-entity light="type: directional;
+        intensity: 0.65;" position="-4 3 0"></a-entity>    -->
 
     <a-box id="current-entity" position='0 0.5 0' material='opacity: 0.7;' color='red'></a-box>
 

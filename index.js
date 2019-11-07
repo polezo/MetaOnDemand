@@ -1,5 +1,8 @@
 
-// https://poly.googleapis.com/v1/assets?keywords=spaceship&format=OBJ&key=AIzaSyBC9puPjTcS63cU_HLfcSqOqs3Lrx7QXvk
+// https://poly.googleapis.com/v1/assets?keywords=cheese&format=OBJ&key=AIzaSyBC9puPjTcS63cU_HLfcSqOqs3Lrx7QXvk
+
+//https://poly.googleapis.com/downloads/fp/1572865632197446/fojR5i3h_nh/ap4tcSxbVuP/flying%20sacuer.obj
+
 
 //https://cors-anywhere.herokuapp.com/
 
@@ -13,6 +16,8 @@ function init () {
     backward.disabled = true;
     document.querySelector("#bigger-button").addEventListener("click",biggify)
     document.querySelector("#smaller-button").addEventListener("click",smallify)
+    document.querySelector("#spin-toggle").addEventListener("click",spinToggle)
+    document.querySelector("#layout-toggle").addEventListener("click",layoutToggle)
 }
 
 document.addEventListener("DOMContentLoaded",init);
@@ -86,6 +91,8 @@ function renderCurrentObj(objArr) {
     objEntity.id = "current-entity"
     objEntity.setAttribute('obj-model',"obj: #current-obj; mtl: #current-mtl");
     objEntity.setAttribute('scale',`${scale} ${scale} ${scale}`);
+    objEntity.innerHTML =`<a-animation attribute="rotation" dur="8000" to="0 360 0" repeat="indefinite" easing="linear">
+    </a-animation>`
     stage.append(objEntity);
     document.getElementById("bottom-ui").classList.remove("hidden")
     document.getElementById("model-name").innerText = ` ${displayItem.displayName} `
@@ -133,12 +140,12 @@ function prevObj(e) {
 
 function biggify(e) {
     document.querySelector("#current-entity").setAttribute('scale',`${scale*1.1} ${scale*1.1} ${scale*1.1}`);
-    scale = scale*1.1
+    scale = scale*1.15
 }
 
 function smallify(e) {
     document.querySelector("#current-entity").setAttribute('scale',`${scale*.9} ${scale*.9} ${scale*.9}`);
-    scale = scale*.9
+    scale = scale*.85
 }
 
 function loadMoreObjects(){
@@ -147,4 +154,32 @@ function loadMoreObjects(){
     fetch(newUrl)
         .then(response => response.json())
         .then(saveObjResourcesLocally)
+}
+
+let vertical = true;
+
+function layoutToggle() {
+let stage = document.querySelector('#stage')
+if (vertical) {
+    stage.setAttribute("rotation","0 0 0")
+    stage.setAttribute("position","0 0 0")
+    } else {
+    stage.setAttribute("rotation","90 0 0")
+    stage.setAttribute("position","0 2 0") 
+    }
+   vertical = !vertical 
+}
+
+let spinning = true;
+
+function spinToggle() {
+    let currentEnt = document.querySelector('#current-entity')
+    if (spinning){
+        currentEnt.innerHTML =``
+    } else {
+        currentEnt.innerHTML =`<a-animation attribute="rotation" dur="8000" to="0 360 0" repeat="indefinite" easing="linear">
+    </a-animation>`;
+    console.log("should be spinning")
+    }
+    spinning = !spinning
 }

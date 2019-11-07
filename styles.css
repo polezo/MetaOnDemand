@@ -24,24 +24,41 @@ body{text-align:center}
     center; z-index: 1;
 }
 
+.bottom-left{
+    position: relative;
+    right:1%;
+    z-index: 1;
+    display: inline-flexbox;
+    text-align:center;
+}
+
+.bottom-right{
+    position: relative;
+    left:1%;
+    z-index: 1;
+    display: inline-flexbox;
+    text-align:center;
+}
+
 @media only screen and (max-width: 600px) {
     .centered-top{
-        position: fixed;
+        position: absolute;
         top: 10px;
-        width: auto;
+        width: 100%;
         text-align: center;
         z-index: 1;
-        left: 29%;
-        float:left;
+        left: 0%;
     }
     .centered-bottom{
-        position: fixed; 
+        position: absolute; 
         bottom: 10px; 
-        width:auto; 
+        width:100%; 
         text-align: center; 
         z-index: 1;
-        left:16%;
+        left:0%
     }
 
   }
+
+
 
