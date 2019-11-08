@@ -1,12 +1,7 @@
 
-// https://poly.googleapis.com/v1/assets?keywords=cheese&format=OBJ&key=AIzaSyBC9puPjTcS63cU_HLfcSqOqs3Lrx7QXvk
-
-//https://poly.googleapis.com/downloads/fp/1572865632197446/fojR5i3h_nh/ap4tcSxbVuP/flying%20sacuer.obj
 
 
-//https://cors-anywhere.herokuapp.com/
-
-const API_KEY = 'AIzaSyBC9puPjTcS63cU_HLfcSqOqs3Lrx7QXvk';
+const API_KEY = '';
 
 function init () {
     document.querySelector("#polyQuery").addEventListener("submit",searchPoly)
